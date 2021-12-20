@@ -1,0 +1,3 @@
+spidev
+st7735
+RPi.GPIO
