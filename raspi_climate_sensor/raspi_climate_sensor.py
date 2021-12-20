@@ -25,6 +25,7 @@ def make_image(font, temperature, pressure, humidity):
     draw.text((10, 5),  f"{temperature:.1f} °C", font=font, fill=(255, 255, 255))
     draw.text((10, 45), f"{humidity:.0f} %", font=font, fill=(255, 255, 255))
     draw.text((10, 85), f"{pressure:.0f} hPa", font=font, fill=(255, 255, 255))
+    draw.text((10, 125), f"{time.strftime('%H:%M:%S')}", font=font, fill=(255, 255, 255))
     return img
 
 def main_cycle(font):
@@ -41,11 +42,12 @@ def main_cycle(font):
         leds.set_led_status_on_pin(PIN_RED, 1)
         leds.set_led_status_on_pin(PIN_YELLOW, 0)
         leds.set_led_status_on_pin(PIN_GREEN, 0)
-    image = make_image(font, temperature, pressure, humidity)
-    display.display_image(image)
+    for _ in range(30):
+        image = make_image(font, temperature, pressure, humidity)
+        display.display_image(image)
+        time.sleep(1)
 
 if __name__ == "__main__":
     font = initialize()
     while True:
         main_cycle(font)
-        time.sleep(30)
