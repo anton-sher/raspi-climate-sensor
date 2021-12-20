@@ -29,6 +29,18 @@ def make_image(font, temperature, pressure, humidity):
 
 def main_cycle(font):
     temperature, pressure, humidity = hygrometer.read_temp_pressure_humidity()
+    if humidity <= 60:
+        leds.set_led_status_on_pin(PIN_RED, 0)
+        leds.set_led_status_on_pin(PIN_YELLOW, 0)
+        leds.set_led_status_on_pin(PIN_GREEN, 1)
+    elif humidity <= 70:
+        leds.set_led_status_on_pin(PIN_RED, 0)
+        leds.set_led_status_on_pin(PIN_YELLOW, 1)
+        leds.set_led_status_on_pin(PIN_GREEN, 0)
+    else:
+        leds.set_led_status_on_pin(PIN_RED, 1)
+        leds.set_led_status_on_pin(PIN_YELLOW, 0)
+        leds.set_led_status_on_pin(PIN_GREEN, 0)
     image = make_image(font, temperature, pressure, humidity)
     display.display_image(image)
 
