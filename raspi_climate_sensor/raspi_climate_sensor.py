@@ -12,6 +12,8 @@ PIN_RED = 26
 PIN_YELLOW = 6
 PIN_GREEN = 5
 
+font = None
+
 def initialize():
     leds.setup_pin_for_led(PIN_GREEN)
     leds.setup_pin_for_led(PIN_YELLOW)
