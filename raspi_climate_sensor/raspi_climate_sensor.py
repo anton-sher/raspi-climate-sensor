@@ -21,9 +21,9 @@ def initialize():
 def make_image(temperature, pressure, humidity):
     img = Image.new('RGB', (display.image_width, display.image_height))
     draw = ImageDraw.Draw(img)
-    draw.text((5, 5),  f"Temperature : {temperature:5d} °C", font=font, fill=(255, 255, 255))
-    draw.text((5, 25), f"Humidity    : {humidity:5d} %", font=font, fill=(255, 255, 255))
-    draw.text((5, 45), f"Pressure    : {pressure:5d} hPa", font=font, fill=(255, 255, 255))
+    draw.text((5, 5),  f"Temperature : {temperature:6.1f} °C", font=font, fill=(255, 255, 255))
+    draw.text((5, 25), f"Humidity    : {humidity:6.1f} %", font=font, fill=(255, 255, 255))
+    draw.text((5, 45), f"Pressure    : {pressure:6.1f} hPa", font=font, fill=(255, 255, 255))
     return img
 
 def main_cycle():
