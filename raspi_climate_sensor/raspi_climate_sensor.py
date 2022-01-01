@@ -32,7 +32,7 @@ def main_cycle(font):
         status_color = 'yellow'
     else:
         status_color = 'red'
-    for _ in range(30):
+    for _ in range(10):
         image = make_image(font, status_color, temperature, pressure, humidity, co2level)
         display.display_image(image)
         time.sleep(1)
